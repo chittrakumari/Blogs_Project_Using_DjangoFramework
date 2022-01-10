@@ -13,7 +13,7 @@ class Article(models.Model):
     #auto_now_add=automatically populates the time feild when the article is created
     date=models.DateTimeField(auto_now_add=True)
     
-    
+    thumb = models.ImageField(default='default.png',blank=True)
     
     #how the objects would look if we retrive them i.e through titles
     def __str__(self):

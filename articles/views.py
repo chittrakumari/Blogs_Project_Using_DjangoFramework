@@ -1,3 +1,4 @@
+from django.http.response import HttpResponse
 from django.shortcuts import render
 from  .models import Article
 def article_list(request):
@@ -6,4 +7,9 @@ def article_list(request):
     
     #we are passing a third parameter articles using dictionary or key-value pair 
     return render(request,'articles/article_list.html',{'articles':articles})
-# Create your views here.
+
+
+def article_detail(request,slug):
+  article =Article.objects.get(slug=slug)
+  
+  return render(request,'articles/article_detail.html',{'article':article})
